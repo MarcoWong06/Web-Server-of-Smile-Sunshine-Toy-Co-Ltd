@@ -8,15 +8,6 @@ body {
 }
 
 /* Layout */
-.main-container {
-  display: flex;
-  min-height: 100vh;
-}
-
-.content-wrapper {
-  flex-grow: 1;
-}
-
 main {
   height: 100vh;
   height: -webkit-fill-available;
@@ -114,19 +105,6 @@ main {
 
 .icon-link:hover>.bi {
   transform: translate(.25rem);
-}
-
-.theme-icon {
-  color: black;
-}
-
-[data-bs-theme="dark"] .theme-icon {
-  color: white;
-}
-
-/* Animation for theme transition */
-.theme-transition {
-  transition: background-color 0.3s, color 0.3s;
 }
 
 /* Buttons and Toggles */

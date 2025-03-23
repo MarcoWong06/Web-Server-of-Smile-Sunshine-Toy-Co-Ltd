@@ -1,0 +1,32 @@
+.main-container {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+}
+
+.content-wrapper {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.theme-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.5rem;
+    background-color: #212529; /* Default for light theme */
+    color: #fff; /* Icon color */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+[data-bs-theme="dark"] .theme-icon {
+    background-color: #fff; /* Background for dark theme */
+    color: #212529; /* Icon color remains white */
+}
+
+/* Animation for theme transition */
+.theme-transition {
+    transition: background-color 0.3s, color 0.3s;
+  }
