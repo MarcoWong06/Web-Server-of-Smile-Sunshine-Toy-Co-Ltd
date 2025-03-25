@@ -1,21 +1,3 @@
-/* Base Elements */
-html {
-  height: -webkit-fill-available;
-}
-
-body {
-  min-height: 100vh;
-}
-
-/* Layout */
-main {
-  height: 100vh;
-  height: -webkit-fill-available;
-  max-height: 100vh;
-  overflow-x: auto;
-  overflow-y: hidden;
-}
-
 /* Bootstrap Components */
 .bd-placeholder-img {
   font-size: 1.125rem;
