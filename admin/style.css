@@ -1,24 +1,3 @@
-/* Base Elements */
-html {
-    height: -webkit-fill-available;
-}
-
-body {
-    min-height: 100vh;
-}
-
-/* Layout */
-.main-container {
-    display: flex;
-    flex-direction: row;
-    min-height: 100vh;
-}
-
-.content-wrapper {
-    flex-grow: 1;
-    padding: 20px;
-}
-
 .theme-icon {
     display: flex;
     align-items: center;
