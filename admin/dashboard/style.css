@@ -1,0 +1,9 @@
+#lblSearch {
+    width: 185px;
+}
+
+@media only screen and (max-width:768px) {
+    #lblSearch {
+        width: 290px;
+    }
+}

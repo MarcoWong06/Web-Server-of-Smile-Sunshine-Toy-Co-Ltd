@@ -247,3 +247,26 @@
   padding: 10px;
   transition: background-color 0.3s;
 }
+
+
+.d-lg-flex.flex-column.flex-shrink-0 {
+    position: fixed;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.d-sm-flex.d-lg-none.flex-column.flex-shrink-0 {
+    position: fixed;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.content-wrapper {
+    margin-left: 280px;
+}
+
+@media (max-width: 992px) {
+    .content-wrapper {
+        margin-left: 4.5rem;
+    }
+}
