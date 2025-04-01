@@ -19,7 +19,7 @@
          tabindex="-1">
         <div class="offcanvas-header">
             <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
-               href="./">
+               href="/">
                 <svg class="bi pe-none me-2" height="24" width="24">
                     <use xlink:href="#bootstrap"/>
                 </svg>
@@ -30,7 +30,7 @@
         <div class="offcanvas-body">
             <ul class="nav nav-pills flex-column mb-auto">
                 <li class="nav-item">
-                    <a aria-current="page" class="nav-link link-body-emphasis" href="../">
+                    <a aria-current="page" class="nav-link active" href="./">
                         <svg class="bi pe-none me-2" height="24" width="24">
                             <use xlink:href="#home"/>
                         </svg>
@@ -38,7 +38,7 @@
                     </a>
                 </li>
                 <li>
-                    <a aria-current="page" class="nav-link active" href="../dashboard/">
+                    <a class="nav-link link-body-emphasis" href="./dashboard/">
                         <svg class="bi pe-none me-2" height="24" width="24">
                             <use xlink:href="#speedometer2"/>
                         </svg>
@@ -46,7 +46,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="nav-link link-body-emphasis" href="../orders/">
+                    <a class="nav-link link-body-emphasis" href="./orders/">
                         <svg class="bi pe-none me-2" height="24" width="24">
                             <use xlink:href="#table"/>
                         </svg>
@@ -54,7 +54,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="nav-link link-body-emphasis" href="../products/">
+                    <a class="nav-link link-body-emphasis" href="./products/">
                         <svg class="bi pe-none me-2" height="24" width="24">
                             <use xlink:href="#grid"/>
                         </svg>
@@ -62,7 +62,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="nav-link link-body-emphasis" href="../materials/">
+                    <a class="nav-link link-body-emphasis" href="./materials/">
                         <svg class="bi pe-none me-2" height="24" width="24">
                             <use xlink:href="#archive"/>
                         </svg>
@@ -70,7 +70,7 @@
                     </a>
                 </li>
                 <li class="nav-item d-none">
-                    <a class="nav-link link-body-emphasis" href="../customers/">
+                    <a class="nav-link link-body-emphasis" href="./customers/">
                         <svg class="bi pe-none me-2" height="24" width="24">
                             <use xlink:href="#people-circle"/>
                         </svg>
@@ -83,12 +83,12 @@
                 <a aria-expanded="false"
                    class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle"
                    data-bs-toggle="dropdown" href="#">
-                    <img alt="" class="rounded-circle me-2" height="32" src="../marco.jpg" width="32">
+                    <img alt="" class="rounded-circle me-2" height="32" src="marco.jpg" width="32">
                     <strong>Admin</strong>
                 </a>
                 <ul class="dropdown-menu text-small shadow">
-                    <li><a class="dropdown-item" href="../settings/">Settings</a></li>
-                    <li><a class="dropdown-item" href="../profile/">Profile</a></li>
+                    <li><a class="dropdown-item" href="./settings/">Settings</a></li>
+                    <li><a class="dropdown-item" href="./profile/">Profile</a></li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>
@@ -109,9 +109,8 @@
         </a>
         <hr>
         <ul class="nav nav-pills flex-column">
-            <!-- Same navigation items as mobile sidebar -->
             <li class="nav-item">
-                <a aria-current="page" class="nav-link link-body-emphasis" href="../">
+                <a aria-current="page" class="nav-link active" href="./">
                     <svg class="bi pe-none me-2" height="24" width="24">
                         <use xlink:href="#home"/>
                     </svg>
@@ -119,7 +118,7 @@
                 </a>
             </li>
             <li>
-                <a aria-current="page" class="nav-link active" href="../dashboard/">
+                <a class="nav-link link-body-emphasis" href="./dashboard/">
                     <svg class="bi pe-none me-2" height="24" width="24">
                         <use xlink:href="#speedometer2"/>
                     </svg>
@@ -127,7 +126,7 @@
                 </a>
             </li>
             <li>
-                <a class="nav-link link-body-emphasis" href="../orders/">
+                <a class="nav-link link-body-emphasis" href="./orders/">
                     <svg class="bi pe-none me-2" height="24" width="24">
                         <use xlink:href="#table"/>
                     </svg>
@@ -135,7 +134,7 @@
                 </a>
             </li>
             <li>
-                <a class="nav-link link-body-emphasis" href="../products/">
+                <a class="nav-link link-body-emphasis" href="./products/">
                     <svg class="bi pe-none me-2" height="24" width="24">
                         <use xlink:href="#grid"/>
                     </svg>
@@ -143,7 +142,7 @@
                 </a>
             </li>
             <li>
-                <a class="nav-link link-body-emphasis" href="../materials/">
+                <a class="nav-link link-body-emphasis" href="./materials/">
                     <svg class="bi pe-none me-2" height="24" width="24">
                         <use xlink:href="#archive"/>
                     </svg>
@@ -151,7 +150,7 @@
                 </a>
             </li>
             <li class="nav-item d-none">
-                <a class="nav-link link-body-emphasis" href="../customers/">
+                <a class="nav-link link-body-emphasis" href="./customers/">
                     <svg class="bi pe-none me-2" height="24" width="24">
                         <use xlink:href="#people-circle"/>
                     </svg>
@@ -164,16 +163,16 @@
             <a aria-expanded="false"
                class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle"
                data-bs-toggle="dropdown" href="#">
-                <img alt="" class="rounded-circle me-2" height="32" src="../marco.jpg" width="32">
+                <img alt="" class="rounded-circle me-2" height="32" src="marco.jpg" width="32">
                 <strong>Admin</strong>
             </a>
             <ul class="dropdown-menu text-small shadow">
-                <li><a class="dropdown-item" href="../settings/">Settings</a></li>
-                <li><a class="dropdown-item" href="../profile/">Profile</a></li>
+                <li><a class="dropdown-item" href="./settings/">Settings</a></li>
+                <li><a class="dropdown-item" href="./profile/">Profile</a></li>
                 <li>
                     <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" href="../login/">Sign out</a></li>
+                <li><a class="dropdown-item" href="./login/">Sign out</a></li>
             </ul>
         </div>
     </div>
@@ -189,18 +188,16 @@
         </a>
         <ul class="nav nav-pills nav-flush flex-column text-center">
             <li class="nav-item">
-                <a aria-current="page" class="nav-link py-3 border-bottom rounded-0" data-bs-placement="right"
-                   data-bs-toggle="tooltip"
-                   href="../" title="Home">
+                <a aria-current="page" class="nav-link active py-3 border-bottom rounded-0" data-bs-placement="right"
+                   data-bs-toggle="tooltip" href="./" title="Home">
                     <svg aria-label="Home" class="bi pe-none" height="24" role="img" width="24">
                         <use xlink:href="#home"/>
                     </svg>
                 </a>
             </li>
             <li>
-                <a class="nav-link active py-3 border-bottom rounded-0" data-bs-placement="right"
-                   data-bs-toggle="tooltip"
-                   href="../dashboard/" title="Dashboard">
+                <a class="nav-link py-3 border-bottom rounded-0" data-bs-placement="right" data-bs-toggle="tooltip"
+                   href="./dashboard/" title="Dashboard">
                     <svg aria-label="Dashboard" class="bi pe-none" height="24" role="img" width="24">
                         <use xlink:href="#speedometer2"/>
                     </svg>
@@ -208,7 +205,7 @@
             </li>
             <li>
                 <a class="nav-link py-3 border-bottom rounded-0" data-bs-placement="right" data-bs-toggle="tooltip"
-                   href="../orders/" title="Orders">
+                   href="./orders/" title="Orders">
                     <svg aria-label="Orders" class="bi pe-none" height="24" role="img" width="24">
                         <use xlink:href="#table"/>
                     </svg>
@@ -216,7 +213,7 @@
             </li>
             <li>
                 <a class="nav-link py-3 border-bottom rounded-0" data-bs-placement="right" data-bs-toggle="tooltip"
-                   href="../products/" title="Products">
+                   href="./products/" title="Products">
                     <svg aria-label="Products" class="bi pe-none" height="24" role="img" width="24">
                         <use xlink:href="#grid"/>
                     </svg>
@@ -224,7 +221,7 @@
             </li>
             <li>
                 <a class="nav-link py-3 border-bottom rounded-0" data-bs-placement="right" data-bs-toggle="tooltip"
-                   href="../materials/" title="Materials">
+                   href="./materials/" title="Materials">
                     <svg aria-label="Materials" class="bi pe-none" height="24" role="img" width="24">
                         <use xlink:href="#archive"/>
                     </svg>
@@ -232,7 +229,7 @@
             </li>
             <li class="d-none">
                 <a class="nav-link py-3 border-bottom rounded-0" data-bs-placement="right" data-bs-toggle="tooltip"
-                   href="../customers/" title="Customers">
+                   href="./customers/" title="Customers">
                     <svg aria-label="Customers" class="bi pe-none" height="24" role="img" width="24">
                         <use xlink:href="#people-circle"/>
                     </svg>
@@ -243,15 +240,15 @@
             <a aria-expanded="false"
                class="d-flex align-items-center justify-content-center p-3 link-body-emphasis text-decoration-none dropdown-toggle"
                data-bs-toggle="dropdown" href="#">
-                <img alt="mdo" class="rounded-circle" height="32" src="../marco.jpg" width="32">
+                <img alt="mdo" class="rounded-circle" height="32" src="marco.jpg" width="32">
             </a>
             <ul class="dropdown-menu text-small shadow">
-                <li><a class="dropdown-item" href="../settings/">Settings</a></li>
-                <li><a class="dropdown-item" href="../profile/">Profile</a></li>
+                <li><a class="dropdown-item" href="./settings/">Settings</a></li>
+                <li><a class="dropdown-item" href="./profile/">Profile</a></li>
                 <li>
                     <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" href="../login/">Sign out</a></li>
+                <li><a class="dropdown-item" href="./login/">Sign out</a></li>
             </ul>
         </div>
     </div>
