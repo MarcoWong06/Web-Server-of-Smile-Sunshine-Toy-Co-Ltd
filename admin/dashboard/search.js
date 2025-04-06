@@ -1,3 +1,11 @@
+const itemPerPage = 10;
+const totalItems = 10;
+
+
+const quantity = Array.from({ length: totalItems }, (_, i) => (i + 1) * 10);
+const amount = Array.from({ length: totalItems }, (_, i) => ((i + 1) * 100).toLocaleString());
+
+
 const searchByOrderId = () => {
 
     const input = document.getElementById("searchOrderId").value;
@@ -25,17 +33,15 @@ const searchByOrderId = () => {
                         </tr>
                         </thead>
                         <tbody>
-        ${Array.from({ length: 10 }, (_, i) => {
-            const index = i + 1;
-            const quantity = index * 10;
-            const amount = (quantity * 100).toLocaleString();
+        ${Array.from({ length: itemPerPage }, (_, i) => {
+            const index = i+1;
             return `
                         <tr>
                             <td>${index}</td>
                             <td>Toy ${index}</td>
                             <td><img alt="${index}" height="100" src="./img/${index}.jpg" width="100"></td>
-                            <td>${quantity}</td>
-                            <td>$ ${amount}.00</td>
+                            <td>${quantity[i]}</td>
+                            <td>$ ${amount[i]}.00</td>
                         </tr>
             `;
         }).join('')}
@@ -48,3 +54,5 @@ const searchByOrderId = () => {
                 </div>
     `;
 }
+
+(()=>{})();
