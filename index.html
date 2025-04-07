@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smile Sunshine Toys Co., Ltd. Online</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-left">
+            <h1 class="logo">Smile Sunshine Toys Co., Ltd. Online</h1>
+        </div>
+        <div class="nav-right">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#login" id="loginLink">Login</a></li>
+                <li><a href="#" id="profileLink">My Profile</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="profileModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Update Profile</h2>
+            <form id="profileForm">
+                <div class="form-group">
+                    <label>New Password:</label>
+                    <input type="password" id="newPassword" placeholder="Enter new password">
+                </div>
+                <div class="form-group">
+                    <label>Contact Number:</label>
+                    <input type="tel" id="contactNumber" pattern="[0-9]{8}" required>
+                </div>
+                <div class="form-group">
+                    <label>Address:</label>
+                    <textarea id="customerAddress" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="update-btn">Update Profile</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="cart-icon">🛒 <span id="cartCount">0</span></div>
+
+    <div class="container">
+        <section id="about" class="content-section hidden">
+            <div class="about-section">
+                <div class="about-header">
+                    <h2>About Smile & Sunshine Toy Co.</h2>
+                    <div class="decorative-line"></div>
+                    <p class="tagline">Bringing Joy to Childhood Since 2008</p>
+                </div>
+        
+                <div class="about-grid">
+                    <!-- Company Story -->
+                    <div class="about-card story-card">
+                        <div class="icon-container">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3>Our Story</h3>
+                        <p>Founded in Hong Kong in 2008, we've grown from a small design studio to a global toy manufacturing leader. Our journey from ODM to OBM reflects our commitment to innovation and quality.</p>
+                    </div>
+        
+                    <!-- Global Presence -->
+                    <div class="about-card map-card">
+                        <div class="icon-container">
+                            <i class="fas fa-globe-asia"></i>
+                        </div>
+                        <h3>Global Footprint</h3>
+                        <div class="location-grid">
+                            <div class="location-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>HQ: Hong Kong</span>
+                            </div>
+                            <div class="location-item">
+                                <i class="fas fa-industry"></i>
+                                <span>Factories: China, Vietnam, Thailand</span>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Manufacturing Process -->
+                    <div class="process-timeline">
+                        <h3>Our Process</h3>
+                        <div class="timeline-item">
+                            <div class="timeline-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h4>Innovation</h4>
+                                <p>Cross-functional teams collaborate on market research and concept development</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-icon">
+                                <i class="fas fa-drafting-compass"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h4>Design</h4>
+                                <p>3D modeling and prototype development with rigorous safety testing</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-icon">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h4>Production</h4>
+                                <p>Precision manufacturing using sustainable materials and quality control</p>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Sustainability -->
+                    <div class="about-card eco-card">
+                        <div class="icon-container">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3>Sustainable Manufacturing</h3>
+                        <ul class="eco-list">
+                            <li><i class="fas fa-recycle"></i> 100% Recyclable Packaging</li>
+                            <li><i class="fas fa-solar-panel"></i> Solar-Powered Factories</li>
+                            <li><i class="fas fa-hand-holding-water"></i> Water-Based Paints</li>
+                        </ul>
+                    </div>
+                </div>
+        
+                <!-- Team Section -->
+                <div class="team-section">
+                    <h3>Leadership Team</h3>
+                    <div class="team-grid">
+                        <div class="team-member">
+                            <div class="member-photo" style="background-image: url('https://picsum.photos/100')"></div>
+                            <h4>ouo</h4>
+                            <p>CEO & Founder</p>
+                        </div>
+                        <div class="team-member">
+                            <div class="member-photo" style="background-image: url('https://picsum.photos/200')"></div>
+                            <h4>huh</h4>
+                            <p>Chief Production Officer</p>
+                        </div>
+                        <div class="team-member">
+                            <div class="member-photo" style="background-image: url('https://picsum.photos/300')"></div>
+                            <h4>-m-</h4>
+                            <p>Creative Director</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="home" class="content-section">
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h1>Welcome to Toy Universe</h1>
+                    <p class="hero-tagline">Where Imagination Meets Quality Play</p>
+                  <a href="#products" class="cta-button">Explore Now</a>
+                </div>
+            </div>
+            <div class="features-section">
+                <h2 class="section-title">Why Choose Us?</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-gem pulse-icon"></i>
+                    </div>
+                        <h3>Curated Quality</h3>
+                        <p>Every toy undergoes strict safety and durability testing</p>
+                    </div>
+                  <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shipping-fast swing-icon"></i>
+                    </div>
+                        <h3>Fast & Free Shipping</h3>
+                        <p>Global delivery within 3-5 business days</p>
+                    </div>
+                    <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-hand-holding-heart rotate-icon"></i>
+                    </div>
+                        <h3>Ethical Sourcing</h3>
+                        <p>100% eco-friendly materials and fair trade certified</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-section">
+                <div class="demo-content">
+                    <h2 class="section-title">Experience Playfulness</h2>
+                    <div class="demo-interactive">
+                        <div class="demo-item" data-toy="robot">
+                            <img src="images/image28.jpg" alt="Interactive Robot">
+                            <img src="images/image11.jpg" alt="other">
+                            <img src="images/image3.jpg" alt="other">
+                            <img src="images/image12.jpg" alt="other">
+                        </div>
+                        <div class="demo-item" data-toy="puzzle">
+                            <img src="images/image29.jpg" alt="3D Puzzle">
+                            <img src="images/image4.jpg" alt="other">
+                            <img src="images/image5.jpg" alt="other">
+                            <img src="images/image6.jpg" alt="other">
+                        </div>
+                        <div class="demo-controls">
+                            <button class="demo-prev"><i class="fas fa-chevron-left"></i></button>
+                            <button class="demo-next"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonials-section">
+                <h2 class="section-title">Love From Customer</h2>
+                <div class="testimonial-slider">
+                <div class="testimonial-card">
+                        <img src="https://picsum.photos/400" alt="Happy Parent" class="user-avatar">
+                        <blockquote>"The educational toys helped my child's cognitive development dramatically!"</blockquote>
+                        <p class="user-name">- Sarah J.</p>
+                </div>
+        </section>
+
+        <section id="products" class="content-section hidden">
+            <div class="products-header">
+                <div class="search-box">
+                    <input type="text" id="productSearch" placeholder="Search products...">
+                    <button id="searchButton">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+            <h2>All Products</h2>
+            <div class="product-grid" id="productContainer"></div>
+
+            <div class="pagination-controls">
+                <button id="prevPage" class="pagination-btn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <span id="currentPage">1</span>
+                <button id="nextPage" class="pagination-btn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+
+        </section>
+
+        <section id="services" class="content-section hidden">
+            <div class="about-section">
+                <h2>Our Services</h2>
+                <div class="service-list">
+                    <div class="service-item">
+                        <h3>Fast Delivery</h3>
+                        <p>24-hour nationwide delivery service</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>7-Day Trial</h3>
+                        <p>Unconditional return policy</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Online Support</h3>
+                        <p>24/7 professional customer service</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Secure Payment</h3>
+                        <p>TLS encryption with multiple payment options</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Smart Recommendations</h3>
+                        <p>AI-powered personalized product suggestions</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Bulk Purchasing</h3>
+                        <p>Corporate discounts with dedicated service</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="login" class="content-section hidden">
+            <div class="login-form">
+                <h2>Member Login</h2>
+                <form id="loginForm">
+                    <p><input type="text" placeholder="Username/Email" required></p>
+                    <p><input type="password" placeholder="Password" required></p>
+                    <button type="submit">Login</button>
+                    <p class="forgot-password">
+                        <a href="#" id="forgotPasswordLink">Forgot Password?</a>
+                    </p>
+                    <p class="forgot-password">
+                        <a href="./admin/login/" id="forgotPasswordLink">Admin Login</a>
+                    </p>
+                </form>
+            </div>
+        
+            <!-- Forgot Password Modal -->
+            <div id="forgotPasswordModal" class="modal hidden">
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    <h3>Reset Password</h3>
+                    <form id="resetPasswordForm">
+                        <div class="form-group">
+                            <label>Registered Email:</label>
+                            <input type="email" id="resetEmail" required>
+                        </div>
+                        <button type="submit" class="modal-btn">Send Reset Link</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="cart-container">
+        <div class="cart-header">
+            <h3>Shopping Cart (<span id="cartTotalCount">0</span> items)</h3>
+            <div class="cart-sort">
+                <button id="sortCartAsc" class="sort-btn">↑ Price</button>
+                <button id="sortCartDesc" class="sort-btn">↓ Price</button>
+            </div>
+            <button class="close-cart">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems"></div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                Total: $<span id="cartTotalPrice">0</span>
+            </div>
+            <button id="viewCartHistory" class="history-btn">View Order Record</button>
+            <button class="delete-btn">Delete Order Record</button>
+            <button class="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <script>
+
+    document.getElementById('profileLink').addEventListener('click', function(e) {
+    e.preventDefault();
+    const modal = document.getElementById('profileModal');
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    
+    if (currentUser) {
+        alert('Please login first');
+        document.getElementById('login').classList.remove('hidden');
+        document.getElementById('home').classList.add('hidden');
+        window.location.href = 'index.html';
+        return;
+    }
+
+
+    modal.style.display = 'block';
+    
+
+    document.getElementById('contactNumber').value = currentUser.contact || '';
+    document.getElementById('customerAddress').value = currentUser.address || '';
+    document.getElementById('newPassword').value = ''; 
+});
+
+        document.getElementsByClassName('close')[0].onclick = function() {
+            document.getElementById('profileModal').style.display = 'none';
+        }
+
+        document.getElementById('profileForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            
+            const updatedData = {
+                ...currentUser,
+                contact: document.getElementById('contactNumber').value,
+                address: document.getElementById('customerAddress').value
+            };
+
+            const newPassword = document.getElementById('newPassword').value;
+            if (newPassword) {
+                if (newPassword.length < 6) {
+                    alert('Password must be at least 6 characters');
+                    return;
+                }
+                updatedData.password = newPassword;
+            }
+
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            const updatedUsers = users.map(user => 
+                user.email === currentUser.email ? updatedData : user
+            );
+            
+            localStorage.setItem('users', JSON.stringify(updatedUsers));
+            localStorage.setItem('currentUser', JSON.stringify(updatedData));
+            
+            alert('Profile updated successfully!');
+            document.getElementById('profileModal').style.display = 'none';
+        });
+        document.addEventListener('DOMContentLoaded', () => {
+            // Clear residual checkout data
+            if (localStorage.getItem('checkoutData')) {
+                localStorage.removeItem('checkoutData');
+            }
+
+            // Product data
+            const products = [
+                { id: 1, name: 'Product 1', price: 40, image: 'images/image1.jpg' },
+                { id: 2, name: 'Product 2', price: 20, image: 'images/image2.jpg' },
+                { id: 3, name: 'Product 3', price: 30, image: 'images/image3.jpg' },
+                { id: 4, name: 'Product 4', price: 50, image: 'images/image4.jpg' },
+                { id: 5, name: 'Product 5', price: 40, image: 'images/image5.jpg' },
+                { id: 6, name: 'Product 6', price: 40, image: 'images/image6.jpg' },
+                { id: 7, name: 'Product 7', price: 45, image: 'images/image7.jpg' },
+                { id: 8, name: 'Product 8', price: 45, image: 'images/image25.jpg' },
+                { id: 9, name: 'Product 9', price: 150, image: 'images/image9.jpg' },
+                { id: 10, name: 'Product 10', price: 120, image: 'images/image10.jpg' },
+                { id: 11, name: 'Product 11', price: 200, image: 'images/image11.jpg' },
+                { id: 12, name: 'Product 12', price: 180, image: 'images/image12.jpg' },
+                { id: 13, name: 'Product 13', price: 10, image: 'images/image13.jpg' },
+                { id: 14, name: 'Product 14', price: 50, image: 'images/image14.jpg' },
+                { id: 15, name: 'Product 15', price: 40, image: 'images/image15.jpg' },
+                { id: 16, name: 'Product 16', price: 200, image: 'images/image16.jpg' },
+                { id: 17, name: 'Product 17', price: 200, image: 'images/image17.jpg' },
+                { id: 18, name: 'Product 18', price: 30, image: 'images/image18.jpg' },
+                { id: 19, name: 'Product 19', price: 20, image: 'images/image19.jpg' },
+                { id: 20, name: 'Product 20', price: 60, image: 'images/image20.jpg' },
+                { id: 21, name: 'Product 21', price: 200, image: 'images/image21.jpg' },
+                { id: 22, name: 'Product 22', price: 40, image: 'images/image27.jpg' },
+                { id: 23, name: 'Product 23', price: 80, image: 'images/image23.jpg' },
+                { id: 24, name: 'Product 24', price: 50, image: 'images/image24.jpg' },
+            ];
+
+            // Shopping cart initialization
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Page switching function
+            document.querySelectorAll('nav a').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = e.target.getAttribute('href').substring(1);
+                    document.querySelectorAll('.content-section').forEach(section => {
+                        section.classList.add('hidden');
+                    });
+                    document.getElementById(targetId).classList.remove('hidden');
+                });
+            });
+
+            // Product rendering
+            const productContainer = document.getElementById('productContainer');
+            products.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                productCard.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}">
+                    <h3>${product.name}</h3>
+                    <p>Price: $${product.price}</p>
+                    <button class="add-to-cart" data-id="${product.id}">Add to Cart</button>
+                `;
+                productContainer.appendChild(productCard);
+            });
+
+            // Shopping cart function
+            const updateCart = () => {
+                const totalCount = cart.reduce((sum, item) => sum + (item.quantity || 0), 0);
+                document.getElementById('cartCount').textContent = totalCount;
+                document.getElementById('cartTotalCount').textContent = totalCount;
+                
+                const cartItems = document.getElementById('cartItems');
+                cartItems.innerHTML = '';
+                
+                let totalPrice = 0;
+                cart.forEach((item, index) => {
+                    const itemTotal = item.price * item.quantity;
+                    totalPrice += itemTotal;
+                    
+                    const cartItem = document.createElement('div');
+                    cartItem.className = 'cart-item';
+                    cartItem.innerHTML = `
+                        <img src="${item.image}" alt="${item.name}">
+                        <div class="cart-item-info">
+                            <h4>${item.name}</h4>
+                            <p>Price: $${item.price}</p>
+                            <div class="quantity-control">
+                                <button class="decrement" data-index="${index}">-</button>
+                                <span>${item.quantity}</span>
+                                <button class="increment" data-index="${index}">+</button>
+                            </div>
+                            <button class="remove-item" data-index="${index}">Remove</button>
+                        </div>
+                    `;
+                    cartItems.appendChild(cartItem);
+                });
+                
+                document.getElementById('cartTotalPrice').textContent = totalPrice;
+                localStorage.setItem('cart', JSON.stringify(cart));
+            };
+
+            // Shopping cart operations
+            document.addEventListener('click', (e) => {
+                if (e.target.classList.contains('add-to-cart')) {
+                    const productId = parseInt(e.target.dataset.id);
+                    const product = products.find(p => p.id === productId);
+                    const existingItem = cart.find(item => item.id === productId);
+                    
+                    if (existingItem) {
+                        existingItem.quantity++;
+                    } else {
+                        cart.push({ ...product, quantity: 1 });
+                    }
+                    updateCart();
+                    openCart();
+                }
+
+                if (e.target.classList.contains('increment')) {
+                    const index = e.target.dataset.index;
+                    cart[index].quantity++;
+                    updateCart();
+                }
+
+                if (e.target.classList.contains('decrement')) {
+                    const index = e.target.dataset.index;
+                    if (cart[index].quantity > 1) {
+                        cart[index].quantity--;
+                    } else {
+                        cart.splice(index, 1);
+                    }
+                    updateCart();
+                }
+
+                if (e.target.classList.contains('remove-item')) {
+                    const index = e.target.dataset.index;
+                    cart.splice(index, 1);
+                    updateCart();
+                }
+            });
+
+            // Shopping cart toggle control
+            const toggleCart = () => {
+                document.querySelector('.cart-container').classList.toggle('active');
+            };
+            const openCart = () => {
+                document.querySelector('.cart-container').classList.add('active');
+            };
+            
+            document.querySelector('.cart-icon').addEventListener('click', toggleCart);
+            document.querySelector('.close-cart').addEventListener('click', toggleCart);
+            document.querySelector('.checkout-btn').addEventListener('click', () => {
+                if (cart.length === 0) {
+                    alert('Your cart is empty!');
+                    return;
+                }
+                localStorage.setItem('checkoutData', JSON.stringify({
+                    cart: cart,
+                    total: cart.reduce((sum, item) => sum + (item.price * item.quantity), 0)
+                }));
+                window.location.href = 'checkout.html';
+            });
+
+            // Login function
+            document.getElementById('loginForm').addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Login successful!');
+                document.getElementById('loginLink').textContent = 'Member Center';
+                document.getElementById('login').classList.add('hidden');
+                document.getElementById('home').classList.remove('hidden');
+            });
+
+            // Initialize shopping cart
+            updateCart();
+        });
+
+        document.getElementById('forgotPasswordLink').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById('forgotPasswordModal').classList.remove('hidden');
+        });
+
+        document.querySelector('.close-modal').addEventListener('click', () => {
+            document.getElementById('forgotPasswordModal').classList.add('hidden');
+        });
+
+        document.getElementById('resetPasswordForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('resetEmail').value;
+            
+            // Simple email format validation
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                alert('Please enter a valid email address');
+                return;
+            }
+
+            // Simulate sending reset link
+            document.getElementById('forgotPasswordModal').classList.add('hidden');
+            alert('Password reset link has been sent to your email (simulated)');
+            document.getElementById('resetEmail').value = '';
+        });
+
+        // Close modal when clicking outside
+        window.onclick = (e) => {
+            const modal = document.getElementById('forgotPasswordModal');
+            if (e.target === modal) {
+                modal.classList.add('hidden');
+            }
+        };
+    </script>
+</body>
+</html>
