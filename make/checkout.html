@@ -1,0 +1,136 @@
+<!-- checkout.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Page</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        input, select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .pay-btn {
+            background: #0099ff;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-left">
+            <h1 class="logo">Online Store</h1>
+        </div>
+    </nav>
+
+    <div class="checkout-container">
+        <div class="order-summary">
+            <h2>Order Summary</h2>
+            <div id="orderItems"></div>
+            <div class="cart-total" style="margin-top: 20px;">
+                Total: $<span id="orderTotal">0</span>
+            </div>
+        </div>
+
+        <form class="payment-form" id="paymentForm">
+            <h2>Payment Information</h2>
+            
+            <div class="form-group">
+                <label>Credit Card Number:</label>
+                <input type="text" placeholder="0000 0000 0000 0000" required>
+            </div>
+
+            <div class="form-group">
+                <label>Expiry Date:</label>
+                <input type="month" required>
+            </div>
+
+            <div class="form-group">
+                <label>CVC:</label>
+                <input type="text" placeholder="123" maxlength="3" required>
+            </div>
+
+            <div class="alternative-payments">
+                <h3>Other payment methods</h3>
+                <button type="button" class="payment-method-btn pp-btn">
+                  <i class="fab fa-cc-paypal"></i>
+                  PayPal
+                </button>
+                
+                <button type="button" class="payment-method-btn ap-btn">
+                  <i class="fab fa-cc-apple-pay"></i>
+                  Alipay
+                </button>
+                
+                <button type="button" class="payment-method-btn gp-btn">
+                  <i class="fab fa-cc-google-pay"></i>
+                  Google Pay
+                </button>
+                
+                <button type="button" class="payment-method-btn stripe-btn">
+                  <i class="fab fa-cc-stripe"></i>
+                  Other
+                </button>
+              </div>
+
+            <button type="submit" class="pay-btn">Pay Now</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const checkoutData = JSON.parse(localStorage.getItem('checkoutData'));
+            
+            if (!checkoutData || !checkoutData.cart || checkoutData.cart.length === 0) {
+                alert('Invalid order!');
+                window.location.href = 'index.html';
+                return;
+            }
+
+            const cart = checkoutData.cart;
+            const orderItems = document.getElementById('orderItems');
+            const orderTotal = document.getElementById('orderTotal');
+            
+            orderTotal.textContent = checkoutData.total;
+            cart.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'cart-item';
+                div.innerHTML = `
+                    <span>${item.name} x${item.quantity}</span>
+                    <span>$${item.price * item.quantity}</span>
+                `;
+                orderItems.appendChild(div);
+            });
+
+            document.getElementById('paymentForm').addEventListener('submit', (e) => {
+                e.preventDefault();
+                localStorage.removeItem('cart');
+                localStorage.removeItem('checkoutData');
+                alert('Payment successful! Thank you for your purchase!');
+                window.location.href = 'index.html';
+            });
+        });
+    </script>
+</body>
+</html>
