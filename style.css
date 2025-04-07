@@ -65,7 +65,7 @@ nav a:hover {
 /* Product grid styles */
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(6, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 30px;
     padding: 20px 2%;
     max-width: 100%;
