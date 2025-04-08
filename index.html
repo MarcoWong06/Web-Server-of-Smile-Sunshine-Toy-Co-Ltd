@@ -19,6 +19,7 @@
                 <li><a href="#services">Services</a></li>
                 <li><a href="#about">About Us</a></li>
                 <li><a href="#login" id="loginLink">Login</a></li>
+                <li><a href="#" id="logoutLink">Logout</a></li>
                 <li><a href="#" id="profileLink">My Profile</a></li>
             </ul>
         </div>
@@ -27,22 +28,56 @@
     <div id="profileModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2>Update Profile</h2>
-            <form id="profileForm">
-                <div class="form-group">
-                    <label>New Password:</label>
-                    <input type="password" id="newPassword" placeholder="Enter new password">
+            <div class="profile-container">
+                <div class="profile-view-section">
+                    <h2>Customer Profile</h2>
+                    <div class="customer-info-view">
+                        <div class="info-item">
+                            <label>Customer ID:</label>
+                            <span id="viewCustomerId">C001</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Full Name:</label>
+                            <span id="viewFullName">John Doe</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Password:</label>
+                            <span id="viewPassword">••••••••</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Telephone:</label>
+                            <span id="viewTelephone">+852 1234 5678</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Address:</label>
+                            <span id="viewAddress">123 Main Street</span>
+                        </div>
+                        <div class="info-item">
+                            <label>Company Name:</label>
+                            <span id="viewCompany">ABC Corporation</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label>Contact Number:</label>
-                    <input type="tel" id="contactNumber" pattern="[0-9]{8}" required>
+                
+                <div class="profile-edit-section">
+                    <h2>Update Profile</h2>
+                    <form id="profileForm">
+                        <div class="form-group">
+                            <label>New Password:</label>
+                            <input type="password" id="newPassword" placeholder="Enter new password">
+                        </div>
+                        <div class="form-group">
+                            <label>Contact Number:</label>
+                            <input type="tel" id="contactNumber" pattern="[0-9]{8}" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Address:</label>
+                            <textarea id="customerAddress" rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="update-btn">Update Profile</button>
+                    </form>
                 </div>
-                <div class="form-group">
-                    <label>Address:</label>
-                    <textarea id="customerAddress" rows="3" required></textarea>
-                </div>
-                <button type="submit" class="update-btn">Update Profile</button>
-            </form>
+            </div>
         </div>
     </div>
 
@@ -219,7 +254,7 @@
                 <div class="testimonial-slider">
                 <div class="testimonial-card">
                         <img src="https://picsum.photos/400" alt="Happy Parent" class="user-avatar">
-                        <blockquote>"The educational toys helped my child's cognitive development dramatically!"</blockquote>
+                        <blockquote>"The toys produced by this company are of very good quality and safety!"</blockquote>
                         <p class="user-name">- Sarah J.</p>
                 </div>
         </section>
@@ -327,8 +362,7 @@
             <div class="cart-total">
                 Total: $<span id="cartTotalPrice">0</span>
             </div>
-            <button id="viewCartHistory" class="history-btn">View Order Record</button>
-            <button class="delete-btn">Delete Order Record</button>
+            <button id="viewCartHistory" class="history-btn" onclick="window.location.href='order-history.html'">View Order Record</button>
             <button class="checkout-btn">Proceed to Checkout</button>
         </div>
     </div>
@@ -336,26 +370,26 @@
     <script>
 
     document.getElementById('profileLink').addEventListener('click', function(e) {
-    e.preventDefault();
-    const modal = document.getElementById('profileModal');
-    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    
-    if (currentUser) {
-        alert('Please login first');
-        document.getElementById('login').classList.remove('hidden');
-        document.getElementById('home').classList.add('hidden');
-        window.location.href = 'index.html';
-        return;
-    }
+        e.preventDefault();
+        const modal = document.getElementById('profileModal');
+        const currentUser = JSON.parse(localStorage.getItem('currentUser')); 
+        
+        if (!currentUser) { 
+            alert('Please login first');
+            document.getElementById('login').classList.remove('hidden');
+            document.querySelector('.content-section:not(#login)').classList.add('hidden');
+            window.location.href = 'index.html';
+            return;
+        }
 
-
-    modal.style.display = 'block';
-    
-
-    document.getElementById('contactNumber').value = currentUser.contact || '';
-    document.getElementById('customerAddress').value = currentUser.address || '';
-    document.getElementById('newPassword').value = ''; 
-});
+        
+        modal.style.display = 'block';
+        
+        
+        document.getElementById('contactNumber').value = currentUser.contact || '';
+        document.getElementById('customerAddress').value = currentUser.address || '';
+        document.getElementById('newPassword').value = '';
+    });
 
         document.getElementsByClassName('close')[0].onclick = function() {
             document.getElementById('profileModal').style.display = 'none';
@@ -552,12 +586,25 @@
             });
 
             // Login function
-            document.getElementById('loginForm').addEventListener('submit', (e) => {
+            document.getElementById('loginForm').addEventListener('submit', function(e) {
                 e.preventDefault();
-                alert('Login successful!');
-                document.getElementById('loginLink').textContent = 'Member Center';
-                document.getElementById('login').classList.add('hidden');
-                document.getElementById('home').classList.remove('hidden');
+                const username = document.querySelector('#loginForm input[type="text"]').value;
+                const password = document.querySelector('#loginForm input[type="password"]').value;
+                
+                if (username && password) {
+                    const userData = {
+                        username: username,
+                        contact: 'Default contact information',
+                        address: 'Default Address'
+                    };
+                    
+                    localStorage.setItem('currentUser', JSON.stringify(userData));
+                    alert('Login successful!');
+                    
+                    document.getElementById('loginLink').textContent = 'Member Center';
+                    document.getElementById('login').classList.add('hidden');
+                    document.getElementById('home').classList.remove('hidden');
+                }
             });
 
             // Initialize shopping cart
@@ -596,6 +643,22 @@
                 modal.classList.add('hidden');
             }
         };
+
+        document.getElementById('logoutLink').addEventListener('click', function(e) {
+            e.preventDefault();
+            localStorage.removeItem('currentUser');
+            alert('Logged out');
+            window.location.reload();
+        });
+
+        console.log('Current User:', JSON.parse(localStorage.getItem('currentUser')));
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (currentUser) {
+                document.getElementById('loginLink').textContent = 'Member Center';
+            }
+        });
     </script>
 </body>
 </html>

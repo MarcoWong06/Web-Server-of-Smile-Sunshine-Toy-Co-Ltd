@@ -134,52 +134,67 @@
         document.addEventListener('DOMContentLoaded', () => {
             const checkoutData = JSON.parse(localStorage.getItem('checkoutData'));
             
-            if (!checkoutData || !checkoutData.cart || checkoutData.cart.length === 0) {
+            if (!checkoutData?.cart?.length) {
                 alert('Invalid order!');
                 window.location.href = 'index.html';
                 return;
             }
-
-            const cart = checkoutData.cart;
-            const orderItems = document.getElementById('orderItems');
-            const orderTotal = document.getElementById('orderTotal');
-            
-            orderTotal.textContent = checkoutData.total;
-            cart.forEach(item => {
-                const div = document.createElement('div');
-                div.className = 'cart-item';
-                div.innerHTML = `
-                    <span>${item.name} x${item.quantity}</span>
-                    <span>$${item.price * item.quantity}</span>
-                `;
-                orderItems.appendChild(div);
-            });
-
+        
+            document.getElementById('orderTotal').textContent = checkoutData.total;
+            document.getElementById('orderItems').innerHTML = checkoutData.cart
+                .map(item => `
+                    <div class="cart-item">
+                        <span>${item.name} x${item.quantity}</span>
+                        <span>$${item.price * item.quantity}</span>
+                    </div>
+                `).join('');
+        
             document.getElementById('paymentForm').addEventListener('submit', (e) => {
                 e.preventDefault();
+                
+                const forms = [
+                    document.querySelector('.info-form'),
+                    e.target
+                ];
+        
+                const isFormValid = forms.every(form => {
+                    if (!form.checkValidity()) {
+                        form.reportValidity();
+                        return false;
+                    }
+                    return true;
+                });
+        
+                if (!isFormValid) return;
+        
+                const getValue = selector => document.querySelector(selector).value;
                 const customerInfo = {
-                    customerId: document.querySelector('[placeholder="C001"]').value,
-                    password: document.querySelector('[type="password"]').value,
-                    telephone: document.querySelector('[type="tel"]').value,
-                    address: document.querySelector('[placeholder="123 Main Street"]').value,
-                    company: document.querySelector('[placeholder="ABC Corporation"]').value
+                    customerId: getValue('[placeholder="C001"]'),
+                    fullName: getValue('[placeholder="John Doe"]'),
+                    password: getValue('[type="password"]'),
+                    telephone: getValue('[type="tel"]'),
+                    address: getValue('[placeholder="123 Main Street"]'),
+                    company: getValue('[placeholder="ABC Corporation"]')
                 };
-                OrderManager.createOrder(checkoutData.cart, customerInfo);
-                const customerForm = document.querySelector('.info-form');
-                if (!customerForm.checkValidity()) {
-                customerForm.reportValidity();
-                return;
-                }
-                if (!e.target.checkValidity()) {
-                e.target.reportValidity();
-                return;
-                }
+        
+                const order = {
+                    id: Date.now(),
+                    date: new Date().toLocaleString(),
+                    ...checkoutData,
+                    customerInfo
+                };
+                
+                const orders = JSON.parse(localStorage.getItem('orders') || '[]');
+                orders.push(order);
+                localStorage.setItem('orders', JSON.stringify(orders));
+        
                 localStorage.removeItem('cart');
                 localStorage.removeItem('checkoutData');
-                alert('Payment successful! Thank you for your purchase!');
+        
+                alert('Payment successful!\nOrder ID: ' + order.id);
                 window.location.href = 'index.html';
             });
         });
-    </script>
+        </script>
 </body>
 </html>

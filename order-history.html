@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order History</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-left">
+            <h1 class="logo">Order History</h1>
+        </div>
+        <div class="nav-right">
+            <ul>
+                <li><a href="index.html">Back to Store</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="order-history">
+            <h2>Your Order Records</h2>
+            <div id="orderList" class="order-list"></div>
+            <div class="order-list">
+                <div class="order-card">
+                    <div class="order-header">
+                        <div class="order-id">
+                            <span>Order ID:</span>
+                            <strong>#20240715-001</strong>
+                        </div>
+                        <div class="order-date">July 15, 2024</div>
+                    </div>
+                    
+                    <div class="order-details">
+                        <div class="order-items">
+                            <div class="order-item">
+                                <span>Product 1 x2</span>
+                                <span>$80</span>
+                            </div>
+                            
+                            <button class="view-detail-btn">
+                                View Details
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <button class="delete-btn" id="deleteOrders">Delete Order Record</button>
+                        </div>
+                    </div>
+                    <div class="order-header">
+                        <div class="order-id">
+                            <span>Order ID:</span>
+                            <strong>#20240718-002</strong>
+                        </div>
+                        <div class="order-date">July 18, 2024</div>
+                    </div>
+                    
+                    <div class="order-details">
+                        <div class="order-items">
+                            <div class="order-item">
+                                <span>Product 35 x2</span>
+                                <span>$150</span>
+                            </div>
+                            
+                            <button class="view-detail-btn">
+                                View Details
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <button class="delete-btn" id="deleteOrders">Delete Order Record</button>
+                        </div>
+                    </div>
+                    <div class="order-header">
+                        <div class="order-id">
+                            <span>Order ID:</span>
+                            <strong>#20240802-003</strong>
+                        </div>
+                        <div class="order-date">August 02, 2024</div>
+                    </div>
+                    
+                    <div class="order-details">
+                        <div class="order-items">
+                            <div class="order-item">
+                                <span>Product 52 x6</span>
+                                <span>$420</span>
+                            </div>
+                            
+                            <button class="view-detail-btn">
+                                View Details
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <button class="delete-btn" id="deleteOrders">Delete Order Record</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const orders = JSON.parse(localStorage.getItem('orders')) || [];
+            const container = document.getElementById('orderList');
+
+            if (orders.length === 0) {
+                container.innerHTML = '<p class="no-orders">No order history found</p>';
+                return;
+            }
+
+            orders.forEach(order => {
+                const orderDiv = document.createElement('div');
+                orderDiv.className = 'order-card';
+                orderDiv.innerHTML = `
+                    <div class="order-header">
+                        <span>Order #${order.id}</span>
+                        <span>${order.date}</span>
+                    </div>
+                    <div class="order-details">
+                        <p>Total: $${order.total}</p>
+                        <p>Customer: ${order.customerInfo.fullName}</p>
+                        <div class="order-items">
+                            ${order.items.map(item => `
+                                <div class="order-item">
+                                    <span>${item.name} x${item.quantity}</span>
+                                    <span>$${item.price * item.quantity}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+                container.appendChild(orderDiv);
+            });
+        });
+    </script>
+</body>
+</html>

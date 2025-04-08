@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+  updateAuthUI();
   // Shopping cart state management module
   const ShoppingCart = (() => {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -169,6 +170,18 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
           alert('Please enter username and password!');
         }
+        localStorage.setItem('currentUser', JSON.stringify(userData));
+        updateAuthUI();
+
+        const userData = {
+          username: username,
+          contact: 'Preset contact information',
+          address: 'Default address'
+        };
+
+        localStorage.setItem('currentUser', JSON.stringify(userData));
+        updateAuthUI();
+        alert('Login successful!');
       });
     }
   };
@@ -176,6 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Main application
   const App = {
     init: () => {
+      updateAuthUI();
       if (localStorage.checkoutData) localStorage.removeItem('checkoutData');
       
       NavigationController.init();
@@ -193,38 +207,40 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   App.init();
-});
 
-// Checkout page specific code
-if (window.location.pathname.includes('checkout.html')) {
-  document.addEventListener('DOMContentLoaded', () => {
-    const checkoutData = JSON.parse(localStorage.getItem('checkoutData'));
-    
-    if (!checkoutData) {
-      alert('Invalid order!');
-      window.location.href = 'index.html';
-      return;
+  document.getElementById('deleteOrders').addEventListener('click', (e) => {
+    if (confirm('Are you sure you want to delete ALL order records?')) {
+      localStorage.removeItem('orders');
+      alert('All order records have been deleted!');
+      if (window.location.pathname.includes('order-history.html')) {
+        window.location.reload();
+      }
     }
-
-    const renderOrder = () => {
-      document.getElementById('orderTotal').textContent = checkoutData.total;
-      document.getElementById('orderItems').innerHTML = checkoutData.cart
-        .map(item => `
-          <div class="cart-item">
-            <span>${item.name} x${item.quantity}</span>
-            <span>$${item.price * item.quantity}</span>
-          </div>
-        `).join('');
-    };
-
-    document.getElementById('paymentForm').addEventListener('submit', (e) => {
-      e.preventDefault();
-      localStorage.removeItem('cart');
-      localStorage.removeItem('checkoutData');
-      alert('Payment successful!');
-      window.location.href = 'index.html';
-    });
-
-    renderOrder();
   });
-}
+
+  document.getElementById('logoutLink').addEventListener('click', function(e) {
+    e.preventDefault();
+    localStorage.removeItem('currentUser');
+    alert('Logged out');
+    updateAuthUI();
+    window.location.reload();
+  });
+
+  function updateAuthUI() {
+    console.log('Updating auth UI...');
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    const loginLi = document.getElementById('loginLi');
+    const logoutLi = document.getElementById('logoutLi');
+    const profileLink = document.getElementById('profileLink');
+
+    if (currentUser) {
+      loginLi.style.display = 'none';
+      logoutLi.style.display = 'block';
+      profileLink.style.pointerEvents = 'auto';
+    } else {
+      loginLi.style.display = 'block';
+      logoutLi.style.display = 'none';
+      profileLink.style.pointerEvents = 'none';
+    }
+  }
+});
